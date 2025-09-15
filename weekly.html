@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WUA Digital Marketing Audit - September 2025</title>
+    <title>WUA Digital Marketing Executive Summary - September 2025</title>
     <style>
         * {
             margin: 0;
@@ -60,7 +60,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             border-bottom: 3px solid #ff532a;
             padding-bottom: 20px;
         }
@@ -73,162 +73,134 @@
         .slide-number {
             background: linear-gradient(45deg, #ff532a, #ff7a50);
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-weight: bold;
+            font-size: 1.1em;
         }
 
         h1 {
             color: #321a33;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 3em;
+            margin-bottom: 30px;
             text-align: center;
         }
 
         h2 {
             color: #ff532a;
-            font-size: 1.8em;
-            margin: 25px 0 15px 0;
-            border-left: 4px solid #ff532a;
-            padding-left: 15px;
+            font-size: 2.2em;
+            margin: 30px 0 20px 0;
+            border-left: 6px solid #ff532a;
+            padding-left: 20px;
         }
 
-        h3 {
-            color: #321a33;
-            font-size: 1.3em;
-            margin: 20px 0 10px 0;
-        }
-
-        .metric-grid {
+        .executive-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
         }
 
-        .metric-card {
+        .executive-card {
             background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
             transition: transform 0.3s ease;
+            border: 3px solid transparent;
         }
 
-        .metric-card:hover {
-            transform: translateY(-5px);
+        .executive-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff532a;
         }
 
-        .metric-value {
-            font-size: 2em;
+        .executive-value {
+            font-size: 3em;
             font-weight: bold;
             color: #ff532a;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            line-height: 1;
         }
 
-        .metric-label {
+        .executive-label {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .executive-sublabel {
             font-size: 0.9em;
-            opacity: 0.9;
+            opacity: 0.8;
+            margin-top: 8px;
         }
 
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-
-        .status-good { background-color: #4CAF50; }
-        .status-warning { background-color: #FF9800; }
-        .status-bad { background-color: #f44336; }
-        .status-blocked { background-color: #9E9E9E; }
-
-        .campaign-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .campaign-table th {
-            background: linear-gradient(45deg, #321a33, #4a2c4d);
+        .highlight-box {
+            background: linear-gradient(135deg, #ff532a 0%, #ff7a50 100%);
             color: white;
-            padding: 15px;
-            text-align: left;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
             font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 10px 30px rgba(255, 83, 42, 0.3);
         }
 
-        .campaign-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
+        .status-good { color: #4CAF50; font-weight: bold; }
+        .status-warning { color: #FF9800; font-weight: bold; }
+        .status-critical { color: #f44336; font-weight: bold; }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
         }
 
-        .campaign-table tr:hover {
-            background-color: #f9f9f9;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 25px;
-            background-color: #e0e0e0;
+        .action-box {
+            background: #f8f9fa;
             border-radius: 15px;
-            overflow: hidden;
-            margin: 10px 0;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 6px solid #ff532a;
         }
 
-        .progress-fill {
+        .action-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #321a33;
+            margin-bottom: 15px;
+        }
+
+        .action-detail {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .budget-progress {
+            background: #e0e0e0;
+            height: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .budget-fill {
             height: 100%;
             background: linear-gradient(45deg, #ff532a, #ff7a50);
-            border-radius: 15px;
-            transition: width 0.8s ease;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            transition: width 1s ease;
         }
-
-        .action-list {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 15px 0;
-        }
-
-        .action-item {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        .action-item:hover {
-            background-color: #e9ecef;
-        }
-
-        .action-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8em;
-        }
-
-        .completed { background-color: #4CAF50; }
-        .in-progress { background-color: #FF9800; }
-        .planned { background-color: #2196F3; }
 
         .navigation {
             position: fixed;
@@ -236,7 +208,7 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 15px;
+            gap: 20px;
             z-index: 1000;
         }
 
@@ -244,17 +216,18 @@
             background: linear-gradient(45deg, #ff532a, #ff7a50);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
+            padding: 15px 30px;
+            border-radius: 30px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1.1em;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 83, 42, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 83, 42, 0.4);
         }
 
         .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 83, 42, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 83, 42, 0.5);
         }
 
         .nav-btn:disabled {
@@ -264,16 +237,16 @@
 
         .slide-dots {
             position: fixed;
-            bottom: 100px;
+            bottom: 110px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
 
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.3);
             cursor: pointer;
@@ -282,589 +255,221 @@
 
         .dot.active {
             background-color: #ff532a;
-            transform: scale(1.2);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #ff532a 0%, #ff7a50 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 20px 0;
+            transform: scale(1.3);
         }
 
         @media (max-width: 768px) {
             .slide {
                 width: 95%;
-                padding: 20px;
+                padding: 25px;
                 height: 90vh;
             }
             
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.5em; }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
             
-            .metric-grid {
+            .executive-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .two-column {
                 grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .executive-value {
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Slide 1: Title Slide -->
+    <!-- Slide 1: Executive Summary -->
     <div class="slide-container">
         <div class="slide active" id="slide1">
             <div class="slide-header">
                 <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">1 / 8</div>
+                <div class="slide-number">1 / 3</div>
             </div>
-            <h1>Digital Marketing Audit</h1>
-            <div style="text-align: center; margin: 40px 0;">
-                <div style="font-size: 1.5em; color: #ff532a; margin-bottom: 20px;">September 2025 Performance Review</div>
-                <div style="font-size: 1.2em; margin-bottom: 30px;">Cross-Platform Campaign Analysis & Optimization Strategy</div>
+            <h1>Digital Marketing Performance</h1>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="font-size: 1.5em; color: #ff532a; margin-bottom: 10px;">September 2025 Executive Summary</div>
             </div>
             
             <div class="highlight-box">
-                <strong>Executive Summary:</strong> Google WUA delivering 4 conversions at €79.16 CPA. LinkedIn account recovered. Advanced optimizations completed across all platforms.
+                <strong>Bottom Line:</strong> 4 conversions generated at €79.16 CPA | 101.8% budget pacing | Google WUA performing, LinkedIn recovered
             </div>
             
-            <div class="metric-grid">
-                <div class="metric-card">
-                    <div class="metric-value">€814.51</div>
-                    <div class="metric-label">Total Ad Spend (Sep 1-12)</div>
+            <div class="executive-grid">
+                <div class="executive-card">
+                    <div class="executive-value">€814</div>
+                    <div class="executive-label">Total Spend</div>
+                    <div class="executive-sublabel">Sep 1-12 (€2,000 monthly budget)</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">4</div>
-                    <div class="metric-label">Conversions Generated</div>
+                <div class="executive-card">
+                    <div class="executive-value">4</div>
+                    <div class="executive-label">Conversions</div>
+                    <div class="executive-sublabel">Google WUA only</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">101.8%</div>
-                    <div class="metric-label">Budget Pacing</div>
+                <div class="executive-card">
+                    <div class="executive-value">€79</div>
+                    <div class="executive-label">Cost Per Acquisition</div>
+                    <div class="executive-sublabel">Within target range</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">85.3%</div>
-                    <div class="metric-label">Optimization Score</div>
+                <div class="executive-card">
+                    <div class="executive-value">14%</div>
+                    <div class="executive-label">Market Share</div>
+                    <div class="executive-sublabel">Impression share captured</div>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h2>What's Working</h2>
+                    <div class="action-box">
+                        <div class="action-title status-good">Google WUA Campaign</div>
+                        <div class="action-detail">4 conversions at competitive CPA. September 4: 30% conversion rate from 10 clicks.</div>
+                    </div>
+                    <div class="action-box">
+                        <div class="action-title status-good">Account Health</div>
+                        <div class="action-detail">85.3% optimization score. LinkedIn payment issue resolved.</div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Critical Issues</h2>
+                    <div class="action-box">
+                        <div class="action-title status-critical">Low Market Coverage</div>
+                        <div class="action-detail">Missing 86% of search opportunities. Competitors dominating visibility.</div>
+                    </div>
+                    <div class="action-box">
+                        <div class="action-title status-warning">Lab45 Underperforming</div>
+                        <div class="action-detail">€13 spend, zero conversions. Requires restructuring.</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 2: Campaign Status -->
+        <!-- Slide 2: Budget & Performance -->
         <div class="slide" id="slide2">
             <div class="slide-header">
                 <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">2 / 8</div>
+                <div class="slide-number">2 / 3</div>
             </div>
-            <h1>Campaign Status Overview</h1>
+            <h1>Budget & Platform Performance</h1>
             
-            <table class="campaign-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Campaign Name</th>
-                        <th>Status</th>
-                        <th>Sep 1-12 Spend</th>
-                        <th>Performance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Google Ads - WUA</strong></td>
-                        <td>PMx | WUA</td>
-                        <td><span class="status-indicator status-good"></span>Active</td>
-                        <td>€316.63</td>
-                        <td><strong>4 Conversions</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Google Ads - Lab45</strong></td>
-                        <td>Lab45 Usability Testing</td>
-                        <td><span class="status-indicator status-warning"></span>Paused</td>
-                        <td>€10.27</td>
-                        <td>Restructuring</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Google Ads - Lab45</strong></td>
-                        <td>Branded Lab45.nl</td>
-                        <td><span class="status-indicator status-good"></span>Active</td>
-                        <td>€2.87</td>
-                        <td>Low Volume</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LinkedIn Ads</strong></td>
-                        <td>Various Campaigns</td>
-                        <td><span class="status-indicator status-good"></span>Recovered</td>
-                        <td>€484.74</td>
-                        <td>Payment Resolved</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="highlight-box">
+                Monthly Budget: €2,000 | Current Pace: 101.8% | Status: On track with LinkedIn recovery
+            </div>
 
-            <h2>Next Week Priority Actions</h2>
-            <div class="action-list">
-                <div class="action-item">
-                    <div class="action-icon completed">✓</div>
-                    <div><strong>LinkedIn Payment Recovery</strong> - Account reactivated and payment method updated</div>
+            <h2>Platform Breakdown</h2>
+            <div style="margin: 30px 0;">
+                <h3 style="color: #321a33; font-size: 1.4em; margin-bottom: 15px;">LinkedIn Ads - €485 (59% of spend)</h3>
+                <div class="budget-progress">
+                    <div class="budget-fill" style="width: 59%">€485 | Account Recovered</div>
                 </div>
-                <div class="action-item">
-                    <div class="action-icon in-progress">→</div>
-                    <div><strong>Google WUA Scaling</strong> - Budget increased to €40/day, impression share targeting</div>
+
+                <h3 style="color: #321a33; font-size: 1.4em; margin-bottom: 15px;">Google WUA - €317 (39% of spend)</h3>
+                <div class="budget-progress">
+                    <div class="budget-fill" style="width: 39%">€317 | 4 Conversions</div>
                 </div>
-                <div class="action-item">
-                    <div class="action-icon planned">📋</div>
-                    <div><strong>Lab45 Restructure</strong> - Pause underperforming, focus branded terms only</div>
+
+                <h3 style="color: #321a33; font-size: 1.4em; margin-bottom: 15px;">Google Lab45 - €13 (2% of spend)</h3>
+                <div class="budget-progress">
+                    <div class="budget-fill" style="width: 2%">€13 | Restructuring Needed</div>
                 </div>
-                <div class="action-item">
-                    <div class="action-icon in-progress">→</div>
-                    <div><strong>Cross-Platform Optimization</strong> - Unified tracking and audience sync implementation</div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h2>Performance Metrics</h2>
+                    <div class="executive-grid">
+                        <div class="executive-card">
+                            <div class="executive-value">0.28%</div>
+                            <div class="executive-label">Conversion Rate</div>
+                            <div class="executive-sublabel">Below 0.5% target</div>
+                        </div>
+                        <div class="executive-card">
+                            <div class="executive-value">2.25%</div>
+                            <div class="executive-label">Click-Through Rate</div>
+                            <div class="executive-sublabel">+255% vs August</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Competitive Position</h2>
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 15px;">
+                        <p style="font-size: 1.1em; color: #321a33; line-height: 1.6;">
+                            <strong>Market Leaders:</strong><br>
+                            • Qualtrics: 49.5% position rate<br>
+                            • Salesforce: 49.4% position rate<br>
+                            • Customer.io: 44.9% position rate<br><br>
+                            <strong style="color: #ff532a;">WUA: 14.25% impression share</strong><br>
+                            <em>Significant growth opportunity identified</em>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 3: KPI Performance -->
+        <!-- Slide 3: Strategic Actions -->
         <div class="slide" id="slide3">
             <div class="slide-header">
                 <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">3 / 8</div>
+                <div class="slide-number">3 / 3</div>
             </div>
-            <h1>Key Performance Indicators</h1>
-            
-            <h2>Google WUA Performance (Sep 1-12)</h2>
-            <table class="campaign-table">
-                <thead>
-                    <tr>
-                        <th>KPI</th>
-                        <th>Current</th>
-                        <th>Benchmark</th>
-                        <th>Status</th>
-                        <th>vs. Previous Period</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>CPA</strong></td>
-                        <td>€79.16</td>
-                        <td>€80-120</td>
-                        <td><span class="status-indicator status-good"></span>Good</td>
-                        <td>Within target range</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Conversion Rate</strong></td>
-                        <td>0.28%</td>
-                        <td>0.5-1.0%</td>
-                        <td><span class="status-indicator status-warning"></span>Below</td>
-                        <td>Needs improvement</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CTR</strong></td>
-                        <td>2.25%</td>
-                        <td>2.0%</td>
-                        <td><span class="status-indicator status-good"></span>Above</td>
-                        <td>+255% vs Aug</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Quality Score</strong></td>
-                        <td>85.3%</td>
-                        <td>80%+</td>
-                        <td><span class="status-indicator status-good"></span>Excellent</td>
-                        <td>Well optimized</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Impression Share</strong></td>
-                        <td>14.25%</td>
-                        <td>25%+</td>
-                        <td><span class="status-indicator status-bad"></span>Low</td>
-                        <td>Missing opportunities</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Cross-Platform Summary</h2>
-            <div class="metric-grid">
-                <div class="metric-card">
-                    <div class="metric-value">4</div>
-                    <div class="metric-label">Google WUA Conversions</div>
-                    <div style="font-size: 0.8em; margin-top: 5px;">CPA: €79.16</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">0</div>
-                    <div class="metric-label">Google Lab45 Conversions</div>
-                    <div style="font-size: 0.8em; margin-top: 5px;">Needs restructuring</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">0</div>
-                    <div class="metric-label">LinkedIn Conversions</div>
-                    <div style="font-size: 0.8em; margin-top: 5px;">Account recovered</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Budget Analysis -->
-        <div class="slide" id="slide4">
-            <div class="slide-header">
-                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">4 / 8</div>
-            </div>
-            <h1>Budget Analysis</h1>
+            <h1>Strategic Actions & Projections</h1>
             
             <div class="highlight-box">
-                Monthly Budget: €2,000 | Days Elapsed: 12/30 (40%) | Actual Spend: €814.51 | Variance: +€14.51 (101.8% pace)
-            </div>
-
-            <h2>Platform Spend Breakdown</h2>
-            <div class="two-column">
-                <div>
-                    <h3>LinkedIn Ads - €484.74</h3>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 59%">59% of total spend</div>
-                    </div>
-                    <p>Monthly projection: €1,211.85 (60.6% of budget)</p>
-
-                    <h3>Google WUA - €316.63</h3>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 39%">39% of total spend</div>
-                    </div>
-                    <p>Monthly projection: €791.58 (39.6% of budget)</p>
-
-                    <h3>Google Lab45 - €13.14</h3>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 2%">2% of total spend</div>
-                    </div>
-                    <p>Monthly projection: €32.85 (1.6% of budget)</p>
-                </div>
-                <div>
-                    <h3>Budget Pacing Analysis</h3>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                        <p><strong>Expected spend by now:</strong> €800.00</p>
-                        <p><strong>Actual spend:</strong> €814.51</p>
-                        <p><strong>Variance:</strong> +€14.51</p>
-                        <p><strong>Status:</strong> <span style="color: #ff532a;">Slightly over pace but manageable</span></p>
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                        <h4 style="color: #ff532a;">Key Insight</h4>
-                        <p>LinkedIn account hold temporarily paused spending. With recovery complete, expect accelerated spend in remaining September days.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Performance Highlights -->
-        <div class="slide" id="slide5">
-            <div class="slide-header">
-                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">5 / 8</div>
-            </div>
-            <h1>Performance Highlights</h1>
-            
-            <div class="two-column">
-                <div>
-                    <h2>✅ What's Working</h2>
-                    <div class="action-list">
-                        <div class="action-item">
-                            <div class="action-icon completed">🎯</div>
-                            <div><strong>Google WUA:</strong> 4 conversions at competitive €79.16 CPA</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon completed">🚀</div>
-                            <div><strong>Sep 4 Success:</strong> 3 conversions from 10 clicks (30% conversion rate!)</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon completed">📱</div>
-                            <div><strong>Mobile Performance:</strong> 77% of spend, driving majority traffic</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon completed">⭐</div>
-                            <div><strong>Quality Score:</strong> 85.3% optimization score shows excellent health</div>
-                        </div>
-                    </div>
-
-                    <h2>🏆 Competitive Position</h2>
-                    <table class="campaign-table" style="font-size: 0.9em;">
-                        <thead>
-                            <tr>
-                                <th>Competitor</th>
-                                <th>Position Above Rate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Qualtrics.com</td><td>49.5%</td></tr>
-                            <tr><td>Salesforce.com</td><td>49.4%</td></tr>
-                            <tr><td>Customer.io</td><td>44.9%</td></tr>
-                            <tr><td><strong>WUA</strong></td><td><strong>14.25% impression share</strong></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div>
-                    <h2>🔴 Critical Issues</h2>
-                    <div class="action-list">
-                        <div class="action-item">
-                            <div class="action-icon completed">✓</div>
-                            <div><strong>LinkedIn Account:</strong> Payment method resolved, account active</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon in-progress">⚠️</div>
-                            <div><strong>Low Impression Share:</strong> Missing 85% of search opportunities</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon planned">🔧</div>
-                            <div><strong>Lab45 Stagnation:</strong> €13 spend, 0 conversions, restructuring needed</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon in-progress">📊</div>
-                            <div><strong>Conversion Rate:</strong> 0.28% below 0.5% benchmark target</div>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Most Productive Day:</strong><br>
-                        September 4: 3 conversions from just 10 clicks<br>
-                        <em>This success pattern is being replicated across campaigns</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Q4 Projections -->
-        <div class="slide" id="slide6">
-            <div class="slide-header">
-                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">6 / 8</div>
-            </div>
-            <h1>Q4 Performance Projections</h1>
-            
-            <h2>Based on Completed Optimizations & Current Trajectory</h2>
-            
-            <table class="campaign-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Current (Sep 1-12)</th>
-                        <th>Projected Q4 Monthly</th>
-                        <th>Growth Target</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Conversions</strong></td>
-                        <td>4 (12 days)</td>
-                        <td><strong>42-58 per month</strong></td>
-                        <td>1,050-1,350% increase</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CPA</strong></td>
-                        <td>€79.16</td>
-                        <td><strong>€65-75</strong></td>
-                        <td>18% improvement</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Conversion Rate</strong></td>
-                        <td>0.28%</td>
-                        <td><strong>0.8-1.2%</strong></td>
-                        <td>286-329% improvement</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Monthly Spend</strong></td>
-                        <td>€814 pace</td>
-                        <td><strong>€1,800-2,000</strong></td>
-                        <td>Full budget utilization</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Quality Score</strong></td>
-                        <td>85.3%</td>
-                        <td><strong>90%+</strong></td>
-                        <td>Excellent optimization</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Impression Share</strong></td>
-                        <td>14.25%</td>
-                        <td><strong>35-45%</strong></td>
-                        <td>3x market coverage</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="two-column">
-                <div>
-                    <h2>Weekly Scaling Targets</h2>
-                    <div class="action-list">
-                        <div class="action-item">
-                            <div class="action-icon planned">1</div>
-                            <div><strong>Week 1:</strong> 6-8 conversions, €75 CPA, €500 budget</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon planned">2</div>
-                            <div><strong>Week 2:</strong> 8-12 conversions, €70 CPA, €550 budget</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon planned">3</div>
-                            <div><strong>Week 3:</strong> 12-15 conversions, €65 CPA, €600 budget</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon planned">4</div>
-                            <div><strong>Week 4:</strong> 15-20 conversions, €60 CPA, €650 budget</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="highlight-box">
-                        <strong>Monthly Goal Achievement:</strong><br>
-                        45+ conversions<br>
-                        €60 average CPA<br>
-                        €2,000 budget utilization<br>
-                        35% impression share minimum
-                    </div>
-
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                        <h3 style="color: #321a33;">Key Success Drivers</h3>
-                        <p>• LinkedIn account recovery and ABM campaigns</p>
-                        <p>• Google Ads Performance Max scaling</p>
-                        <p>• ConvertFlow popups generating +127 monthly leads</p>
-                        <p>• Cross-platform audience synchronization</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Performance Analysis -->
-        <div class="slide" id="slide7">
-            <div class="slide-header">
-                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">7 / 8</div>
-            </div>
-            <h1>Performance Analysis & Optimizations</h1>
-            
-            <h2>Key Performance Improvements</h2>
-            <div class="metric-grid">
-                <div class="metric-card">
-                    <div class="metric-value">-16.7%</div>
-                    <div class="metric-label">CPA Reduction (€95→€79.16)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+255%</div>
-                    <div class="metric-label">CTR Improvement vs August</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">+77%</div>
-                    <div class="metric-label">Mobile Traffic Share</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">85.3%</div>
-                    <div class="metric-label">Optimization Score</div>
-                </div>
+                <strong>Q4 Target:</strong> 42-58 monthly conversions | €65-75 CPA | 35%+ market share | €2,000 full budget utilization
             </div>
 
             <div class="two-column">
                 <div>
-                    <h2>Campaign Optimizations Completed</h2>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
-                        <p><strong>Google Ads:</strong> Smart bidding implementation and keyword refinement</p>
-                        <p><strong>LinkedIn:</strong> Account recovery and payment method resolution</p>
-                        <p><strong>Targeting:</strong> Audience optimization and demographic refinement</p>
-                        <p><strong>Quality Score:</strong> Improved from 6 to 8.5 average</p>
-                        <p><strong>Budget Management:</strong> Enhanced allocation across platforms</p>
+                    <h2>Immediate Actions</h2>
+                    <div class="action-box">
+                        <div class="action-title">Scale Google WUA</div>
+                        <div class="action-detail">Increase budget to €40/day. Replicate September 4 success pattern across campaigns.</div>
+                    </div>
+                    <div class="action-box">
+                        <div class="action-title">LinkedIn Campaign Launch</div>
+                        <div class="action-detail">Deploy recovered account with targeted B2B campaigns. Focus on decision-makers.</div>
+                    </div>
+                    <div class="action-box">
+                        <div class="action-title">Lab45 Restructure</div>
+                        <div class="action-detail">Pause underperforming campaigns. Focus on branded terms only until conversions achieved.</div>
                     </div>
                 </div>
-                
                 <div>
-                    <h2>Strategic Insights</h2>
-                    <div style="background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%); color: white; padding: 20px; border-radius: 10px;">
-                        <p><strong>September 4 Success:</strong> 30% conversion rate day provides blueprint for scaling</p>
-                        <p><strong>Mobile Focus:</strong> 77% of traffic suggests mobile-first strategy</p>
-                        <p><strong>Impression Share:</strong> Only 14.25% captured - significant growth opportunity</p>
-                        <p><strong>Competitive Position:</strong> Behind major players but with room for strategic positioning</p>
+                    <h2>Growth Projections</h2>
+                    <div class="executive-grid">
+                        <div class="executive-card">
+                            <div class="executive-value">10x</div>
+                            <div class="executive-label">Conversion Growth</div>
+                            <div class="executive-sublabel">4 to 42-58 monthly</div>
+                        </div>
+                        <div class="executive-card">
+                            <div class="executive-value">3x</div>
+                            <div class="executive-label">Market Coverage</div>
+                            <div class="executive-sublabel">14% to 35% impression share</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%); color: white; padding: 25px; border-radius: 15px; margin-top: 20px; text-align: center;">
+                        <h3 style="color: #ff532a; margin-bottom: 15px;">Success Drivers</h3>
+                        <p style="font-size: 1.1em; line-height: 1.5;">
+                            LinkedIn account recovery + Google WUA scaling + impression share growth = projected 1,000%+ conversion increase in Q4
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <strong>Next Phase Strategy:</strong> Focus on impression share growth while maintaining CPA efficiency. Scale successful September 4 patterns across all campaigns.
-            </div>
-        </div>
-
-        <!-- Slide 8: Next Steps -->
-        <div class="slide" id="slide8">
-            <div class="slide-header">
-                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
-                <div class="slide-number">8 / 8</div>
-            </div>
-            <h1>Next Steps & Immediate Actions</h1>
-            
-            <div class="two-column">
-                <div>
-                    <h2>🚀 Next 48 Hours Priority</h2>
-                    <div class="action-list">
-                        <div class="action-item">
-                            <div class="action-icon in-progress">1</div>
-                            <div><strong>Google Ads Scaling:</strong> Increase daily budget to €40 for impression share growth</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon in-progress">2</div>
-                            <div><strong>LinkedIn Campaign Restart:</strong> Launch campaigns with recovered account</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon in-progress">3</div>
-                            <div><strong>Lab45 Restructuring:</strong> Focus on branded terms and pause underperforming campaigns</div>
-                        </div>
-                        <div class="action-item">
-                            <div class="action-icon in-progress">4</div>
-                            <div><strong>Performance Monitoring:</strong> Enhanced dashboard setup and conversion tracking</div>
-                        </div>
-                    </div>
-
-                    <h2>📊 Weekly Review Schedule</h2>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
-                        <p><strong>Monday:</strong> Keyword performance & bid adjustments</p>
-                        <p><strong>Wednesday:</strong> Ad copy performance analysis</p>
-                        <p><strong>Friday:</strong> Conversion tracking & pipeline review</p>
-                        <p><strong>Monthly:</strong> Full cross-platform attribution analysis</p>
-                    </div>
-                </div>
-                
-                <div>
-                    <h2>🎯 Success Metrics to Track</h2>
-                    <div class="metric-grid">
-                        <div class="metric-card">
-                            <div class="metric-value">WUA >20%</div>
-                            <div class="metric-label">Impression Share by week-end</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">8-12</div>
-                            <div class="metric-label">Weekly conversions target</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">€65-75</div>
-                            <div class="metric-label">Target CPA range</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">35%+</div>
-                            <div class="metric-label">Impression Share Goal</div>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>Executive Summary:</strong><br>
-                        Campaign foundations optimized. LinkedIn account recovered. Ready for aggressive Q4 scaling with 42-58 monthly conversions projected.
-                    </div>
-
-                    <div style="background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
-                        <h3 style="color: #ff532a;">Ready for Scale</h3>
-                        <p>All platforms optimized. Performance tracking enhanced. Ready to achieve 10x conversion growth in Q4.</p>
-                    </div>
-                </div>
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 20px; margin-top: 30px; text-align: center;">
+                <h2 style="color: #321a33; border: none; padding: 0; margin-bottom: 15px;">Executive Decision Required</h2>
+                <p style="font-size: 1.3em; color: #321a33; line-height: 1.5;">
+                    <strong>Recommendation:</strong> Approve budget reallocation to scale Google WUA performance while LinkedIn campaigns launch. 
+                    Expected ROI: 3:1 within 60 days.
+                </p>
             </div>
         </div>
     </div>
@@ -880,16 +485,11 @@
         <span class="dot active" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-        <span class="dot" onclick="currentSlide(6)"></span>
-        <span class="dot" onclick="currentSlide(7)"></span>
-        <span class="dot" onclick="currentSlide(8)"></span>
     </div>
 
     <script>
         let currentSlideIndex = 1;
-        const totalSlides = 8;
+        const totalSlides = 3;
 
         function showSlide(n) {
             const slides = document.getElementsByClassName('slide');
@@ -938,11 +538,11 @@
 
         // Auto-animate progress bars on slide load
         setTimeout(() => {
-            const progressBars = document.querySelectorAll('.progress-fill');
+            const progressBars = document.querySelectorAll('.budget-fill');
             progressBars.forEach(bar => {
                 const width = bar.style.width;
                 bar.style.width = '0%';
-                setTimeout(() => bar.style.width = width, 100);
+                setTimeout(() => bar.style.width = width, 300);
             });
         }, 500);
     </script>
