@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WUA Weekly Content Performance Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #321a33;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            color: #321a33;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #321a33;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #ff532a;
+            font-size: 2.2em;
+            margin: 30px 0 20px 0;
+            border-left: 6px solid #ff532a;
+            padding-left: 20px;
+        }
+
+        h3 {
+            color: #321a33;
+            font-size: 1.6em;
+            margin: 25px 0 15px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ff532a 0%, #ff7a50 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 10px 30px rgba(255, 83, 42, 0.3);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid #ff532a;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #321a33;
+            margin-bottom: 15px;
+        }
+
+        .content-type {
+            display: inline-block;
+            background: #ff532a;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .metric-value {
+            color: #321a33;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .channel-breakdown {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .channel-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            margin: 6px 0;
+            font-size: 0.9em;
+        }
+
+        .channel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .channel-table thead {
+            background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%);
+            color: white;
+        }
+
+        .channel-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .channel-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .channel-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .channel-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .channel-name {
+            font-weight: bold;
+            color: #321a33;
+        }
+
+        .stat-good {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .stat-warning {
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        .stat-critical {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ff532a;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .insight-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 6px solid #ff532a;
+        }
+
+        .key-finding {
+            background: linear-gradient(135deg, #321a33 0%, #4a2c4d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(45deg, #ff532a, #ff7a50);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .channel-table {
+                font-size: 0.85em;
+            }
+
+            .channel-table th,
+            .channel-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1757689413/13367056496426742101_1_ndby5a.png" alt="WUA Logo" class="logo">
+            <h1>Weekly Content Performance</h1>
+            <div style="font-size: 1.4em; color: #ff532a; margin-bottom: 15px;">Masterclass & Whitepaper Analytics</div>
+            <div style="font-size: 1.1em; color: #666;">Last 7 Days & 28 Days Comparison</div>
+        </div>
+
+        <!-- 7-Day Quick Stats -->
+        <div class="section">
+            <h2>Last 7 Days Overview</h2>
+            
+            <div class="highlight-box">
+                <strong>33 Total Downloads</strong> | Informatieflow WP leading with 27 downloads | Vertrouwen MC gaining traction with 14 views
+            </div>
+            
+            <div class="quick-stats">
+                <div class="stat-box">
+                    <div class="stat-value">27</div>
+                    <div class="stat-label">WP Informatieflow Downloads</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">14</div>
+                    <div class="stat-label">MC Vertrouwen Views</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">WP Berekenstraat Downloads</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">MC Informatieflow Views</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 28-Day Content Performance -->
+        <div class="section">
+            <h2>28-Day Content Performance</h2>
+            
+            <div class="content-grid">
+                <!-- MC Informatieflow -->
+                <div class="content-card">
+                    <div class="content-type">MASTERCLASS</div>
+                    <div class="content-title">Informatieflow On-Demand</div>
+                    
+                    <div class="metric-row">
+                        <span class="metric-label">Views</span>
+                        <span class="metric-value stat-good">124</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Form Fills</span>
+                        <span class="metric-value stat-good">49</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Conversion Rate</span>
+                        <span class="metric-value stat-good">39.5%</span>
+                    </div>
+                    
+                    <div class="channel-breakdown">
+                        <strong style="font-size: 0.9em; color: #321a33;">Top Channels:</strong>
+                        <div class="channel-item">
+                            <span>Ortto/Email</span>
+                            <strong>23</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>LinkedIn InMail</span>
+                            <strong>4</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>Google</span>
+                            <strong>2</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MC Vertrouwen -->
+                <div class="content-card">
+                    <div class="content-type">MASTERCLASS</div>
+                    <div class="content-title">Vertrouwen On-Demand</div>
+                    
+                    <div class="metric-row">
+                        <span class="metric-label">Views</span>
+                        <span class="metric-value">10</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Form Fills</span>
+                        <span class="metric-value stat-critical">0</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Conversion Rate</span>
+                        <span class="metric-value stat-critical">0%</span>
+                    </div>
+                    
+                    <div class="channel-breakdown">
+                        <strong style="font-size: 0.9em; color: #321a33;">Top Channels:</strong>
+                        <div class="channel-item">
+                            <span>Google</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>Upwork</span>
+                            <strong>1</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>LinkedIn</span>
+                            <strong>0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WP Informatieflow -->
+                <div class="content-card">
+                    <div class="content-type" style="background: #4CAF50;">WHITEPAPER</div>
+                    <div class="content-title">Informatieflow Optimization</div>
+                    
+                    <div class="metric-row">
+                        <span class="metric-label">Downloads</span>
+                        <span class="metric-value stat-good">27</span>
+                    </div>
+                    
+                    <div class="channel-breakdown">
+                        <strong style="font-size: 0.9em; color: #321a33;">Top Channels:</strong>
+                        <div class="channel-item">
+                            <span>Ortto Email</span>
+                            <strong>7</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>Other (not set)</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>Google</span>
+                            <strong>1</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WP Vertrouwen -->
+                <div class="content-card">
+                    <div class="content-type" style="background: #4CAF50;">WHITEPAPER</div>
+                    <div class="content-title">E-book Online Vertrouwen</div>
+                    
+                    <div class="metric-row">
+                        <span class="metric-label">Downloads</span>
+                        <span class="metric-value">10</span>
+                    </div>
+                    
+                    <div class="channel-breakdown">
+                        <strong style="font-size: 0.9em; color: #321a33;">Top Channels:</strong>
+                        <div class="channel-item">
+                            <span>(not set)</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>Google</span>
+                            <strong>2</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WP Berekenstraat -->
+                <div class="content-card">
+                    <div class="content-type" style="background: #4CAF50;">WHITEPAPER</div>
+                    <div class="content-title">Experience Guide: De Berekenstraat</div>
+                    
+                    <div class="metric-row">
+                        <span class="metric-label">Downloads</span>
+                        <span class="metric-value">5</span>
+                    </div>
+                    
+                    <div class="channel-breakdown">
+                        <strong style="font-size: 0.9em; color: #321a33;">Top Channels:</strong>
+                        <div class="channel-item">
+                            <span>(not set)</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="channel-item">
+                            <span>Google</span>
+                            <strong>2</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-finding">
+                <h3 style="color: #ff532a; margin-bottom: 15px;">Content Performance Insights</h3>
+                <p style="font-size: 1.2em; line-height: 1.5;">
+                    <strong>Star Performer:</strong> MC Informatieflow with 39.5% conversion rate (49 forms from 124 views). 
+                    <strong>Action Required:</strong> MC Vertrouwen needs optimization - 10 views but 0 conversions. 
+                    <strong>Email Dominance:</strong> Ortto/Email driving 30+ conversions across content.
+                </p>
+            </div>
+        </div>
+
+        <!-- Channel Performance Analysis -->
+        <div class="section">
+            <h2>28-Day Channel Performance Analysis</h2>
+            
+            <table class="channel-table">
+                <thead>
+                    <tr>
+                        <th>Channel</th>
+                        <th>New Users</th>
+                        <th>Returning Users</th>
+                        <th>Avg. Session</th>
+                        <th>Form Fills</th>
+                        <th>Downloads</th>
+                        <th>Total Conversions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="channel-name">Direct</td>
+                        <td>41</td>
+                        <td>32</td>
+                        <td class="stat-good">1m 48s</td>
+                        <td class="stat-good">31</td>
+                        <td class="stat-good">50</td>
+                        <td class="stat-good"><strong>81</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="channel-name">Email</td>
+                        <td>47</td>
+                        <td>15</td>
+                        <td class="stat-good">1m 21s</td>
+                        <td class="stat-good">33</td>
+                        <td class="stat-good">20</td>
+                        <td class="stat-good"><strong>53</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="channel-name">Organic</td>
+                        <td>56</td>
+                        <td>21</td>
+                        <td class="stat-good">1m 16s</td>
+                        <td>8</td>
+                        <td>16</td>
+                        <td><strong>24</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="channel-name">Social (LinkedIn)</td>
+                        <td>16</td>
+                        <td>2</td>
+                        <td class="stat-warning">45s</td>
+                        <td>8</td>
+                        <td>2</td>
+                        <td><strong>10</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="channel-name">Cross Network (Paid)</td>
+                        <td>83</td>
+                        <td>5</td>
+                        <td class="stat-critical">24s</td>
+                        <td class="stat-critical">1</td>
+                        <td class="stat-critical">3</td>
+                        <td class="stat-critical"><strong>4</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="insight-box">
+                <h3 style="color: #321a33; margin-bottom: 15px;">Channel Insights</h3>
+                <p style="font-size: 1.1em; color: #555; line-height: 1.6;">
+                    <strong>Direct traffic dominates</strong> with 81 total conversions and highest engagement (1m 48s avg. session). 
+                    <strong>Email continues to perform</strong> with 53 conversions and 1m 21s session duration. 
+                    <strong>Critical issue: Paid advertising severely underperforming</strong> - 83 new users but only 4 total conversions with 24s avg. session, indicating poor targeting or landing page relevance.
+                    <strong>Organic opportunity</strong>: 56 new users with good engagement but lower conversion rate suggests nurture optimization needed.
+                </p>
+            </div>
+
+            <h3>Key Recommendations</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
+                <div style="background: #ffebee; padding: 20px; border-radius: 12px; border-left: 5px solid #f44336;">
+                    <h4 style="color: #f44336; margin-bottom: 10px;">🚨 Critical Actions</h4>
+                    <ul style="color: #555; line-height: 1.8; margin-left: 20px;">
+                        <li>Fix MC Vertrouwen conversion funnel (0% conversion rate)</li>
+                        <li>Audit paid advertising campaigns (24s engagement is failing)</li>
+                        <li>Review (not set) attribution gaps across whitepapers</li>
+                    </ul>
+                </div>
+                <div style="background: #e8f5e8; padding: 20px; border-radius: 12px; border-left: 5px solid #4CAF50;">
+                    <h4 style="color: #4CAF50; margin-bottom: 10px;">✅ Scale What Works</h4>
+                    <ul style="color: #555; line-height: 1.8; margin-left: 20px;">
+                        <li>Replicate MC Informatieflow success (39.5% conversion)</li>
+                        <li>Increase email campaigns (53 conversions from 62 users)</li>
+                        <li>Optimize direct traffic landing pages (1m 48s engagement)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Week Targets -->
+        <div class="section">
+            <h2>Next Week Targets</h2>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div style="background: white; padding: 25px; border-radius: 15px; text-align: center; border-top: 4px solid #ff532a;">
+                        <div style="font-size: 2.5em; font-weight: bold; color: #ff532a;">40+</div>
+                        <div style="color: #321a33; font-weight: 600; margin-top: 10px;">WP Informatieflow Downloads</div>
+                        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">+48% growth target</div>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 15px; text-align: center; border-top: 4px solid #ff532a;">
+                        <div style="font-size: 2.5em; font-weight: bold; color: #ff532a;">5+</div>
+                        <div style="color: #321a33; font-weight: 600; margin-top: 10px;">MC Vertrouwen Conversions</div>
+                        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Fix 0% conversion rate</div>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 15px; text-align: center; border-top: 4px solid #ff532a;">
+                        <div style="font-size: 2.5em; font-weight: bold; color: #ff532a;">10+</div>
+                        <div style="color: #321a33; font-weight: 600; margin-top: 10px;">Paid Campaign Conversions</div>
+                        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">Improve from current 4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px 0; color: rgba(255, 255, 255, 0.8);">
+            <p style="font-size: 1.1em;">WUA Content Performance Report</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Weekly Analytics Dashboard</p>
+        </div>
+    </div>
+
+    <script>
+        // Progress bar functionality
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
+
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
